@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
@@ -12,9 +12,32 @@ const Tab = createBottomTabNavigator();
 const App = () => {
   return (
     <NavigationContainer>
-      <Tab.Navigator>
-        <Tab.Screen name="Pokedex" component={Pokedex} />
-        <Tab.Screen name="Sac" component={Sac} />
+      <Tab.Navigator
+        initialRouteName="Pokedex"
+        tabBarOptions={{
+          activeTintColor: '#EE4542',
+        }}>
+        <Tab.Screen
+          name="Pokedex"
+          component={Pokedex}
+          options={{
+            tabBarLabel: 'Pokedex',
+            tabBarIcon: () => {
+              const icon = require('./assets/smartphone.png')
+              return <Image source={icon} style={{ height: 25, width: 25 }} />
+            }
+          }} />
+        <Tab.Screen
+          name="Sac"
+          component={Sac}
+          options={{
+            tabBarLabel: 'Sac',
+            tabBarIcon: () => {
+              const icon = require('./assets/backpack.png')
+              return <Image source={icon} style={{ height: 25, width: 25 }} />
+            }
+          }}
+        />
       </Tab.Navigator>
     </NavigationContainer>
   );
