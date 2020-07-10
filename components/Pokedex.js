@@ -10,7 +10,6 @@ const Pokedex = () => {
 
   const getPokemonList = () => {
     Axios.get('https://pokeapi.co/api/v2/pokemon?limit=50').then(res => {
-      console.log(res.data)
       setPokemonList(res.data.results)
     })
   }
@@ -20,9 +19,15 @@ const Pokedex = () => {
   }, [])
   return (
     <View>
-      {pokemonList.map((pokemon, index) => {
-        return <PokemonCard key={index} pokemon={pokemon}/>
-      })}
+      <Text style={{ textAlign: "center", fontSize: 20, padding: 20, textDecorationLine:'underline'}}>Pokedex</Text>
+      <View style={{
+        flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center',
+        justifyContent: 'center'
+      }}>
+        {pokemonList.map((pokemon, index) => {
+          return <PokemonCard key={index} pokemon={pokemon} />
+        })}
+      </View>
     </View>
   )
 }
