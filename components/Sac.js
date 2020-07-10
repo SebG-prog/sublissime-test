@@ -3,8 +3,8 @@ import { View, Text } from 'react-native'
 
 const Sac = () => {
   return (
-    <View>
-      <Text>This is the bag</Text>
+    <View style={{height:'100%', justifyContent:'center', alignItems: 'center'}}>
+      <Text>Your bag is empty!</Text>
     </View>
   )
 }
