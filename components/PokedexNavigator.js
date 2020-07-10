@@ -1,7 +1,8 @@
 import React from 'react'
+import { createStackNavigator } from '@react-navigation/stack';
+
 import Pokedex from './Pokedex'
 import PokemonInfo from './PokemonInfo'
-import { createStackNavigator } from '@react-navigation/stack';
 
 const Stack = createStackNavigator();
 

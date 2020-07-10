@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import { View, Text, ScrollView } from 'react-native'
+import { View, Text, ScrollView, StyleSheet } from 'react-native'
 import Axios from 'axios'
+
 import PokemonCard from './PokemonCard'
 
-
-
-const Pokedex = ({navigation}) => {
-  console.log(navigation)
+const Pokedex = ({ navigation }) => {
   const [pokemonList, setPokemonList] = useState([])
 
   const getPokemonList = () => {
@@ -21,13 +19,10 @@ const Pokedex = ({navigation}) => {
 
   return (
     <ScrollView>
-      <Text style={{ textAlign: "center", fontSize: 20, padding: 20, borderWidth:1, backgroundColor: '#31BDE2', marginBottom: 10}}>Pokedex</Text>
-      <View style={{
-        flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center',
-        justifyContent: 'center'
-      }}>
+      <Text style={styles.title} >Pokedex</Text>
+      <View style={styles.pokedex}>
         {pokemonList.map((pokemon, index) => {
-          return <PokemonCard key={index} pokemon={pokemon} navigation={navigation}/>
+          return <PokemonCard key={index} pokemon={pokemon} navigation={navigation} />
         })}
       </View>
     </ScrollView>
@@ -35,3 +30,20 @@ const Pokedex = ({navigation}) => {
 }
 
 export default Pokedex
+
+const styles = StyleSheet.create({
+  title: {
+    textAlign: "center",
+    fontSize: 20,
+    padding: 20,
+    borderWidth: 1,
+    backgroundColor: '#31BDE2',
+    marginBottom: 10
+  },
+  pokedex: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    alignItems: 'center',
+    justifyContent: 'center'
+  }
+})
