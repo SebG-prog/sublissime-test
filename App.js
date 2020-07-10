@@ -5,7 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 // import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
-import Pokedex from './components/Pokedex';
+import PokedexNavigator from './components/PokedexNavigator'
 import Sac from './components/Sac';
 
 const Tab = createMaterialTopTabNavigator();
@@ -21,8 +21,8 @@ const App = () => {
           activeTintColor: '#EE4542',
         }}>
         <Tab.Screen
-          name="Pokedex"
-          component={Pokedex}
+          name="PokedexNavigator"
+          component={PokedexNavigator}
           options={{
             tabBarLabel: 'Pokedex',
             tabBarIcon: () => {

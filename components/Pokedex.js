@@ -5,7 +5,8 @@ import PokemonCard from './PokemonCard'
 
 
 
-const Pokedex = () => {
+const Pokedex = ({navigation}) => {
+  console.log(navigation)
   const [pokemonList, setPokemonList] = useState([])
 
   const getPokemonList = () => {
@@ -17,15 +18,16 @@ const Pokedex = () => {
   useEffect(() => {
     getPokemonList()
   }, [])
+
   return (
     <ScrollView>
-      <Text style={{ textAlign: "center", fontSize: 20, padding: 20, textDecorationLine:'underline'}}>Pokedex</Text>
+      <Text style={{ textAlign: "center", fontSize: 20, padding: 20, borderWidth:1, backgroundColor: '#31BDE2', marginBottom: 10}}>Pokedex</Text>
       <View style={{
         flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center',
         justifyContent: 'center'
       }}>
         {pokemonList.map((pokemon, index) => {
-          return <PokemonCard key={index} pokemon={pokemon} />
+          return <PokemonCard key={index} pokemon={pokemon} navigation={navigation}/>
         })}
       </View>
     </ScrollView>
